@@ -19,6 +19,8 @@ static SDL_Window *window;
 
 
 void r_init(void) {
+  /* init SDL */
+  SDL_Init(SDL_INIT_EVERYTHING);
   /* init SDL window */
   window = SDL_CreateWindow(
     NULL, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
