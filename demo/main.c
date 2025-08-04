@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "renderer.h"
 #include "microui.h"
 
@@ -244,7 +245,7 @@ int main(int argc, char **argv) {
 
         case R_EV_KEYDOWN:
         case R_EV_KEYUP: {
-          int c = r_key_map[e.key.keysym.sym & 0xff];
+          int c = r_get_event_key_modifier(e);
           if (c && e.type == R_EV_KEYDOWN) { mu_input_keydown(ctx, c); }
           if (c && e.type ==   R_EV_KEYUP) { mu_input_keyup(ctx, c);   }
           break;
