@@ -1,4 +1,4 @@
-#include <SDL3/SDL.h>
+#include <SDL.h>
 
 #define R_EV_QUIT            SDL_EVENT_QUIT
 #define R_EV_KEYUP           SDL_EVENT_KEY_UP

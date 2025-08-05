@@ -10,14 +10,18 @@ else
     GLFLAG="-lGL"
 fi
 
+# default argument is "sdl2", otherwise type "sdl3"
 ARG="${1:-sdl2}"
 
-if [ $ARG == "sdl3" ]; then
-    CFLAGS="$CFLAGS -DSDL3_RENDERER"
-    SDLFLAG="`pkg-config --libs sdl3`"
-else
-    SDLFLAG="`sdl2-config --libs`"
+VER="${ARG:3:4}"
+
+CFLAGS="$CFLAGS -DSDL${VER}_RENDERER `pkg-config --cflags sdl${VER}`"
+if [ $VER == "3" ]; then
+    CFLAGS="$CFLAGS/SDL3"
 fi
+
+SDLFLAG="`pkg-config --libs sdl${VER}`"
+
 
 CFLAGS="$CFLAGS -I../src -Wall -std=c11 -pedantic $SDLFLAG $GLFLAG -lm -O3 -g"
 
