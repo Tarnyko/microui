@@ -1,4 +1,4 @@
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 #define R_EV_QUIT            SDL_QUIT
 #define R_EV_KEYUP           SDL_KEYUP
